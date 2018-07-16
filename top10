@@ -1,0 +1,7 @@
+--Top find the top buyers from the txns.txt and respective details for each customer.
+
+txn = load '/home/hduser/Downloads/tottransperfom/txns1.txt' using PigStorage(',') as (txnid, txndt, cust:int, amount:double, category, product, city, state, spendby);
+
+txn = foreach txn generate custid,amount;
+
+dump txn;
